@@ -1,0 +1,79 @@
+" clear search highlighting and messages
+nnoremap <silent> <Space><Space> :nohlsearch<Bar>:echo<CR>
+
+" switch between windows
+nnoremap <Tab> <C-w>w
+nnoremap <S-Tab> <C-w>W
+
+" enter visual mode and select text using shift + arrow keys
+nmap <S-Left> vh
+nmap <S-Down> V
+nmap <S-Up> V
+nmap <S-Right> vl
+vmap <S-Left> h
+vmap <S-Down> j
+vmap <S-Up> k
+vmap <S-Right> l
+
+" keep selection after in/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" better navigation of wrapped lines
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+
+" move selected lines keeping selection
+if has("gui_running")
+  if has("gui_macvim")
+    nnoremap <M-S-Up> :m-2<CR>
+    nnoremap <M-S-Down> :m+1<CR>
+    vnoremap <M-S-Up> :m'<-2<CR>gv
+    vnoremap <M-S-Down> :m'>+1<CR>gv
+  else
+    nnoremap <C-S-Up> :m-2<CR>
+    nnoremap <C-S-Down> :m+1<CR>
+    vnoremap <C-S-Up> :m'<-2<CR>gv
+    vnoremap <C-S-Down> :m'>+1<CR>gv
+  endif
+else
+  nnoremap <C-k> :m-2<CR>
+  nnoremap <C-j> :m+1<CR>
+  vnoremap <C-k> :m'<-2<CR>gv
+  vnoremap <C-j> :m'>+1<CR>gv
+endif
+
+" textmate style indention
+if has("gui_running")
+  if has("gui_macvim")
+    nmap <D-[> <<
+    nmap <D-]> >>
+    vmap <D-[> <gv
+    vmap <D-]> >gv
+  else
+    nmap <M-[> <<
+    nmap <M-]> >>
+    vmap <M-[> <gv
+    vmap <M-]> >gv
+  endif
+endif
+
+" switch to previous/next buffer
+if has("gui_running")
+  if has("gui_macvim")
+    nmap <silent> <D-S-Left> :bp<CR>
+    nmap <silent> <D-S-Right> :bn<CR>
+  else
+    nmap <silent> <M-S-Left> :bp<CR>
+    nmap <silent> <M-S-Right> :bn<CR>
+  endif
+endif
+
+" save current buffer
+nnoremap <silent> <F2> :write<CR>
+inoremap <silent> <F2> <Esc>:write<CR>a
+
+" switch to alternate buffer
+nmap <C-Esc> <C-^>

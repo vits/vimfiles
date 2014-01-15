@@ -1,0 +1,1 @@
+Bundle 'jeetsukumaran/vim-buffergator'

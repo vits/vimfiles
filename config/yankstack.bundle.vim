@@ -1,0 +1,1 @@
+Bundle 'maxbrunsfeld/vim-yankstack'
