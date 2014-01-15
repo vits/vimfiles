@@ -15,12 +15,12 @@ for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do
 done
 
 # Clone vimfiles into .vim
-#git clone https://github.com/vits/vimfiles.git $HOME/.vim \
-#  || die "Could not clone the repository to ${HOME}/.vim"
+git clone https://github.com/vits/vimfiles.git $HOME/.vim \
+  || die "Could not clone the repository to ${HOME}/.vim"
 
 # Clone vundle
-#git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle \
-#  || die "Could not clone vundle to ${HOME}/.vim/bundle/vundle"
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle \
+  || die "Could not clone vundle to ${HOME}/.vim/bundle/vundle"
 
 # Create symlinks
 ln -s ~/.vim/vimrc ~/.vimrc || die "Could not create symlink ${HOME}/.vimrc"
